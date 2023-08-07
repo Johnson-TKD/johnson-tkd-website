@@ -1,64 +1,60 @@
+"use client"
+
 import { createClient } from 'contentful';
 import Image from 'next/image'
-import Header from '../src/components/header';
-import HtmlHead from '@/src/components/head';
+import Header from '../components/header';
+import HtmlHead from '@/components/head';
 
-async function getData() {
+// async function getData() {
   
-  let data;
+//   let data;
     
-  const client = createClient({
-    space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID,
-    accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN,
-  });
+//   const client = createClient({
+//     space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID,
+//     accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN,
+//   });
 
-  try {
+//   try {
 
-    const { total, items } = await client.getEntries({
-      content_type : 'page',
-      include : 10,
-      [ 'fields.slug' ] : '/'
-    });
+//     const { total, items } = await client.getEntries({
+//       content_type : 'page',
+//       include : 10,
+//       [ 'fields.slug' ] : '/'
+//     });
 
-    const header = await client.getEntries({
-      content_type : 'header',
-      include : 10,
-    });
+//     const header = await client.getEntries({
+//       content_type : 'header',
+//       include : 10,
+//     });
 
-    data = items?.[ 0 ] || null;
+//     data = items?.[ 0 ] || null;
 
-    data.header = header;
+//     data.header = header;
 
-  } catch ( error ) {
+//   } catch ( error ) {
 
-    console.log( error );
+//     console.log( error );
 
-    return {
-      notFound: true
-    }
+//     return {
+//       notFound: true
+//     }
 
-  }
+//   }
 
-  return data;
+//   return data;
 
-}
+// }
 
-export default async function Home() {
+export default function Home() {
 
-  const data = await getData();
+  // const data = await getData();
 
-  console.log( data )
+  // console.log( data )
 
   return (
     <main>
       <HtmlHead />
-      <Header
-        {
-          ...{
-            data
-          }
-        }
-      />
+      <Header />
     </main>
   )
 }

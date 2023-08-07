@@ -1,10 +1,24 @@
+import { useAppContext } from "@/functions/hooks";
 import Image from "next/image";
 import Link from "next/link";
 import Logo from "public/logo.png";
-
+import { Menu, Times } from "./svgs";
 
 const Header = () => {
 
+	const { state : { menu }, dispatch } = useAppContext();
+
+	const actions = {
+		open : () => dispatch({
+			type : 'menu',
+			active : true
+		}),
+		close : () => dispatch({
+			type : 'menu',
+			active : false
+		})
+	};
+console.log(menu.active)
     return (
 
 		<header>
@@ -34,7 +48,7 @@ const Header = () => {
 							Johnson&apos;s Taekwon-do
 						</Link>
 					</div>
-					{/* <button
+					<button
 						{
 							...{
 								type : 'button',
@@ -49,7 +63,7 @@ const Header = () => {
 								}
 							}
 						/>
-					</button> */}
+					</button>
 				</div>
 				<div className="bg-black w-full">
 					<ul className="px-8 text-md max-w-screen-lg	m-auto">
