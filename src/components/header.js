@@ -27,7 +27,7 @@ const Header = () => {
 							{
 								...{
 									href : '/',
-									className : 'text-brand-1 font-montserrat font-bold text-black text-2xl',
+									className : 'text-black font-montserrat font-bold text-black text-2xl',
 								}
 							}
 						>
