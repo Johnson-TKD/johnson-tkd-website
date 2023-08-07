@@ -31,7 +31,7 @@ const Header = () => {
 								}
 							}
 						>
-							Johnson's Taekwon-do
+							Johnson&apos;s Taekwon-do
 						</Link>
 					</div>
 					{/* <button
