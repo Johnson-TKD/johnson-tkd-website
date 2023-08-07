@@ -1,6 +1,7 @@
 import { createClient } from 'contentful';
 import Image from 'next/image'
 import Header from '../src/components/header';
+import HtmlHead from '@/src/components/head';
 
 async function getData() {
   
@@ -50,6 +51,7 @@ export default async function Home() {
 
   return (
     <main>
+      <HtmlHead />
       <Header
         {
           ...{
