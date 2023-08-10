@@ -1,60 +1,37 @@
-"use client"
-
 import { createClient } from 'contentful';
 import Image from 'next/image'
 import Header from '../components/header';
 import HtmlHead from '@/components/head';
+import { getData, contentRender } from '@/functions/content-render';
 
-// async function getData() {
-  
-//   let data;
-    
-//   const client = createClient({
-//     space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID,
-//     accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN,
-//   });
+export default async function Home() {
 
-//   try {
-
-//     const { total, items } = await client.getEntries({
-//       content_type : 'page',
-//       include : 10,
-//       [ 'fields.slug' ] : '/'
-//     });
-
-//     const header = await client.getEntries({
-//       content_type : 'header',
-//       include : 10,
-//     });
-
-//     data = items?.[ 0 ] || null;
-
-//     data.header = header;
-
-//   } catch ( error ) {
-
-//     console.log( error );
-
-//     return {
-//       notFound: true
-//     }
-
-//   }
-
-//   return data;
-
-// }
-
-export default function Home() {
-
-  // const data = await getData();
-
-  // console.log( data )
+  const data = await getData();
 
   return (
+    
     <main>
       <HtmlHead />
-      <Header />
+      <Header
+        {
+          ...{
+            data
+          }
+        }
+      />
+      { data?.fields?.sections &&
+
+        data?.fields?.sections.map( ( section, key ) => {
+
+          return ( 
+
+            contentRender( section, key )
+
+          )
+
+        })
+
+      }
     </main>
   )
 }
