@@ -28,6 +28,12 @@ body {
 	height: 20px;
 	width: 20px;
 	border-radius: 50%;
+	transition-property: all;
+	transition-duration: 300ms;
+}
+
+.react-multi-carousel-dot button:hover {
+	background-color: white;
 }
 
 .react-multi-carousel-dot button {

@@ -3,7 +3,6 @@ import Carousel from 'react-multi-carousel';
 import CarouselSlide from './carousel-slide';
 
 const CardCarousel = ({ items, title }) => {
-    console.log( items )
 
     return (
 
@@ -61,7 +60,8 @@ const CardCarousel = ({ items, title }) => {
 								...{
 									url : item?.fields?.image?.fields?.file?.url,
 									title : item?.fields?.title,
-									description: item?.fields?.description?.content?.[0]?.content?.[0]?.value
+									description: item?.fields?.description?.content?.[0]?.content?.[0]?.value,
+									link : item?.fields?.link?.fields
 								}
 							}
 						/>

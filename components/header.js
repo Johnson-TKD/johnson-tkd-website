@@ -52,7 +52,7 @@ const Header = ({ data }) => {
 					</div>
 					<div className="flex items-center gap-x-8">
 						{ data?.header?.items?.[ 0 ]?.fields?.address && 
-						<div className="flex items-center gap-x-2">
+						<div className="hidden lg:flex items-center gap-x-2">
 							<Location className="w-10 h-10" />
 							<address className="not-italic font-montserrat font-normal w-60">
 								{ data?.header?.items?.[ 0 ]?.fields?.address }
@@ -80,7 +80,7 @@ const Header = ({ data }) => {
 				<div className="bg-black w-full">
 					<ul className="px-8 text-md max-w-screen-lg	m-auto">
 					{ data?.header?.items?.[ 0 ]?.fields?.navigationLinks?.length > 0 &&
-					<div className="flex items-center space-x-8 py-4 font-lora font-bold">
+					<div className="flex items-center space-x-8 py-4 font-montserrat font-bold">
 						{
 							data?.header?.items?.[ 0 ]?.fields?.navigationLinks?.map( ({ text, ...rest }, key ) => (
 								<li key={ key }>
