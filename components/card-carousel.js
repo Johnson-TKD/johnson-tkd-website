@@ -12,10 +12,11 @@ const CardCarousel = ({ items, title }) => {
 				additionalTransfrom={ 0 }
 				showDots={ true }
 				containerClass="relative"
-				dotListClass="flex w-full absolute left-1/2 bottom-4 gap-x-4"
+				dotListClass="flex absolute -translate-x-1/2 left-1/2 bottom-4 gap-x-2"
 				autoPlaySpeed={ 3000 }
 				centerMode={ false }
 				infinite={ true }
+				ssr={ true }
 				draggable = { true }
 				focusOnSelect={ false }
 				keyBoardControl

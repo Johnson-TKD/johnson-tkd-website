@@ -25,8 +25,8 @@ body {
 
 .react-multi-carousel-dot button {
 	border-color: white !important;
-	height: 20px;
-	width: 20px;
+	height: 15px;
+	width: 15px;
 	border-radius: 50%;
 	transition-property: all;
 	transition-duration: 300ms;

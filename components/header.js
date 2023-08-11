@@ -31,39 +31,65 @@ const Header = ({ data }) => {
 					}
 				}
 			>
-				<div className="w-full flex justify-between px-8 max-w-screen-lg m-auto">
-					<div className="flex items-center gap-x-8 py-4">
+				<div className="w-full px-8 max-w-screen-lg m-auto grid grid-cols-12">
+					<Link
+						{
+							...{
+								href : '/',
+								className : 'col-span-6 lg:col-span-3 flex items-center gap-x-4 py-4 text-black font-montserrat font-bold text-black text-xl',
+							}
+						}
+					>
 						<Image 
 							src={ Logo.src }
 							width={85}
 							height={85}
 							alt=""
 						/>
-						<Link
+						<span className="w-full">
+						Johnson&apos;s&#013;<br/>Taekwon&#8209;do
+						</span>
+					</Link>
+					<ul className="col-span-6 relative text-md hidden lg:flex justify-center items-center">
+					{ data?.header?.items?.[ 0 ]?.fields?.navigationLinks?.length > 0 &&
+						<div className="w-full flex justify-center items-center space-x-8 py-2 font-montserrat font-bold text-sm">
 							{
-								...{
-									href : '/',
-									className : 'text-black font-montserrat font-bold text-black text-2xl',
-								}
+								data?.header?.items?.[ 0 ]?.fields?.navigationLinks?.map( ({ text, ...rest }, key ) => (
+									<li key={ key }>
+										<Link 
+										{
+											...{
+												className : 'text-black hover:underline',
+												href : rest?.fields?.url
+											}
+										}
+										>
+											{ rest?.fields?.cta }
+										</Link>
+									</li>
+								))
 							}
-						>
-							Johnson&apos;s&#013;Taekwon&#8209;do
-						</Link>
-					</div>
-					<div className="flex items-center gap-x-8">
-						{ data?.header?.items?.[ 0 ]?.fields?.address && 
+						</div>
+					}
+					</ul>
+					<div className="col-span-6 lg:col-span-3 flex items-center justify-end gap-x-8">
+						{/* { data?.header?.items?.[ 0 ]?.fields?.address && 
 						<div className="hidden lg:flex items-center gap-x-2">
 							<Location className="w-10 h-10" />
 							<address className="not-italic font-montserrat font-normal w-60">
 								{ data?.header?.items?.[ 0 ]?.fields?.address }
 							</address>
 						</div>
-						}
+						} */}
+						<Link className="hidden lg:flex font-lora text-md border-2 rounded-full px-8 py-2 hover:bg-black hover:text-white transition-all duration-300" href='/'>
+							Start Today
+						</Link>
 						<button
 							{
 								...{
 									type : 'button',
 									onClick : actions.open,
+									className : 'flex lg:hidden'
 								}
 							}
 						>
@@ -76,30 +102,6 @@ const Header = ({ data }) => {
 							/>
 						</button>
 					</div>
-				</div>
-				<div className="bg-black w-full">
-					<ul className="px-8 text-md max-w-screen-lg	m-auto">
-					{ data?.header?.items?.[ 0 ]?.fields?.navigationLinks?.length > 0 &&
-					<div className="flex items-center space-x-8 py-4 font-montserrat font-bold">
-						{
-							data?.header?.items?.[ 0 ]?.fields?.navigationLinks?.map( ({ text, ...rest }, key ) => (
-								<li key={ key }>
-									<Link 
-									{
-										...{
-											className : 'text-white',
-											href : rest?.fields?.url
-										}
-									}
-									>
-										{ rest?.fields?.cta }
-									</Link>
-								</li>
-							))
-						}
-					</div>
-					}
-					</ul>
 				</div>
 			</nav>
 			{ data?.header?.items?.[ 0 ]?.fields?.navigationLinks?.length > 0 &&
@@ -117,7 +119,7 @@ const Header = ({ data }) => {
 			<div
 				{
 					...{
-						className : 'z-20 fixed top-0 w-full h-screen bg-white shadow transform duration-300 md:w-1/4 ' + ( menu?.active ? 'right-0' : '-right-full' )
+						className : 'z-20 fixed top-0 w-full h-screen bg-white shadow transform duration-300 md:w-5/12 ' + ( menu?.active ? 'right-0' : '-right-full' )
 					}
 				}
 			>
@@ -133,27 +135,51 @@ const Header = ({ data }) => {
 					<Times
 						{
 							...{
-								className : 'w-8 h-8 fill-brand-1'
+								className : 'w-8 h-8 fill-black'
 							}
 						}
 					/>
 				</button>
 				<div className="h-full p-12">
-					<div className="h-full overflow-scroll space-y-6">
+					<div className="h-full flex flex-col items-center justify-center">
+						<Link
+							{
+								...{
+									href : '/',
+									className : 'col-span-6 lg:col-span-3 flex items-center gap-x-4 py-4 text-black font-montserrat font-bold text-black text-xl',
+								}
+							}
+						>
+							<Image 
+								src={ Logo.src }
+								width={85}
+								height={85}
+								alt=""
+							/>
+						</Link>
+						<ul className="flex flex-col items-center gap-y-4">
 						{
 							data?.header?.items?.[ 0 ]?.fields?.navigationLinks?.map( ({ text, ...rest }, key ) => (
-								<Link key={ key }
-								{
-									...{
-										className : 'block text-brand-1',
-										href : rest?.fields?.url
+								<li>
+									<Link key={ key }
+									{
+										...{
+											className : 'block text-black font-bold  text-lg hover:underline font-montserrat',
+											href : rest?.fields?.url
+										}
 									}
-								}
-								>
-									{ rest?.fields?.cta }
-								</Link>
+									>
+										{ rest?.fields?.cta }
+									</Link>
+								</li>
 							))
 						}
+							<li>
+								<Link className="flex font-lora text-md border-2 rounded-full px-8 py-2 hover:bg-black hover:text-white transition-all duration-300" href='/'>
+									Start Today
+								</Link>
+							</li>
+						</ul>
 					</div>
 				</div>
 			</div>
