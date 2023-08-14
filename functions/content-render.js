@@ -2,6 +2,7 @@ import Advertisement from "@/components/advertisement";
 import CardCarousel from "@/components/card-carousel";
 import CardCenterFeature from "@/components/card-center-feature";
 import CardFeature from "@/components/card-feature";
+import CardSocialFeed from "@/components/card-social-feed";
 import { createClient } from "contentful";
 
 export const contentRender = ( section, key ) => {
@@ -67,6 +68,22 @@ export const contentRender = ( section, key ) => {
 			/>
 
 		);
+
+	}
+
+	if ( section?.sys?.contentType?.sys?.id === 'socialMediaSection') {
+
+		return (
+
+			<CardSocialFeed 
+				{
+					...{
+						...section.fields
+					}
+				}
+			/>
+
+		)
 
 	}
 
