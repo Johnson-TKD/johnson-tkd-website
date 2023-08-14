@@ -1,24 +1,40 @@
 import CardCarousel from "@/components/card-carousel";
+import CardFeature from "@/components/card-feature";
 import { createClient } from "contentful";
 
 export const contentRender = ( section, key ) => {
 
-    if (  section?.sys?.contentType?.sys?.id === 'carousel' ) {
+    if ( section?.sys?.contentType?.sys?.id === 'carousel' ) {
 
         return (
 
-          <CardCarousel 
-            {
-              ...{
-                ...section.fields,
-                key
-              }
-            }
-          />
+			<CardCarousel key={ key }
+				{
+					...{
+						...section.fields,
+					}
+				}
+			/>
 
-        )
+        );
 
     } 
+
+	if ( section?.sys?.contentType?.sys?.id === 'feature' ) {
+
+		return (
+
+			<CardFeature 
+				{
+					...{
+						...section.fields,
+					}
+				}
+			/>
+
+		);
+
+	}
 
 }
 

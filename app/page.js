@@ -1,5 +1,3 @@
-import { createClient } from 'contentful';
-import Image from 'next/image'
 import Header from '../components/header';
 import HtmlHead from '@/components/head';
 import { getData, contentRender } from '@/functions/content-render';

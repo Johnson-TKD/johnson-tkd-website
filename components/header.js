@@ -160,8 +160,8 @@ const Header = ({ data }) => {
 						<ul className="flex flex-col items-center gap-y-4">
 						{
 							data?.header?.items?.[ 0 ]?.fields?.navigationLinks?.map( ({ text, ...rest }, key ) => (
-								<li>
-									<Link key={ key }
+								<li key={ key }>
+									<Link
 									{
 										...{
 											className : 'block text-black font-bold  text-lg hover:underline font-montserrat',

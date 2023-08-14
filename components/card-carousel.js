@@ -6,7 +6,7 @@ const CardCarousel = ({ items, title }) => {
 
     return (
 
-        <>
+        <div className="pb-24">
 			{ items &&
             <Carousel 
 				additionalTransfrom={ 0 }
@@ -71,7 +71,7 @@ const CardCarousel = ({ items, title }) => {
 				})}
 			</Carousel>
 			}
-        </>
+        </div>
 
     );
 
