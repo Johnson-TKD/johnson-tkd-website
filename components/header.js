@@ -147,6 +147,7 @@ const Header = ({ data }) => {
 								...{
 									href : '/',
 									className : 'col-span-6 lg:col-span-3 flex items-center gap-x-4 py-4 text-black font-montserrat font-bold text-black text-xl',
+									onClick : actions.close
 								}
 							}
 						>

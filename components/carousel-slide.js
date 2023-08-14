@@ -7,14 +7,14 @@ const CarouselSlide = ({ url, title, description, link }) => {
 		<div
 			{
 				...{
-					className : 'h-[400px] md:h-[630px] bg-cover w-full',
+					className : 'relative h-[400px] md:h-[630px] bg-cover w-full',
 					style : {
 						backgroundImage : 'url(' + url + ')'
 					}
 				}
 			}
 		>
-			<div className="max-w-screen-2xl m-auto w-full h-full flex flex-col items-center justify-center text-white gap-y-4 px-8 text-center">
+			<div className="relative z-20 max-w-screen-2xl m-auto w-full h-full flex flex-col items-center justify-center text-white gap-y-4 px-8 text-center">
 				{ title &&
 				<h2 className="font-montserrat text-4xl md:text-6xl font-bold whitespace-break-spaces">
 					{ title }
@@ -39,6 +39,7 @@ const CarouselSlide = ({ url, title, description, link }) => {
 				</Link>
 				}
 			</div>
+			<div className="z-10 absolute top-0 left-0 w-full h-full bg-black opacity-50 mix-blend-multiply"/>
 		</div>
 
 	)

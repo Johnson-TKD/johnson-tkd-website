@@ -8,14 +8,14 @@ const CardFeature = ({ heading, description, subheading, image, altText, alignme
 	const options = {
 
         renderNode: {
-            [BLOCKS.PARAGRAPH]: ( node, children ) => <p className="mb-4"> { children }</p>,
+            [BLOCKS.PARAGRAPH]: ( node, children ) => <p className="mb-4 font-lora"> { children }</p>,
         }
 
     };
 
 	return (
 
-		<section className="w-full px-8 max-w-screen-lg m-auto pb-12">
+		<section className="w-full px-8 max-w-screen-lg m-auto pb-24">
 			<div
 				{
 					...{
@@ -45,11 +45,11 @@ const CardFeature = ({ heading, description, subheading, image, altText, alignme
 					}
 				</div>
 				{ image?.fields?.file?.url &&
-				<div className="w-full lg:w-4/12">
+				<div className="w-full lg:w-4/12 rounded-xl border border-black">
 					<img 
 						src={ image?.fields?.file?.url } 
 						alt={ altText } 
-						className="min-h-[400px] w-full block object-cover object-center rounded-xl border border-black"
+						className="min-h-[400px] w-full block object-cover object-center rounded-xl"
 					/>
 				</div>
 				}
