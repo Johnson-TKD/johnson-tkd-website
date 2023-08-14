@@ -2,7 +2,7 @@
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { BLOCKS } from '@contentful/rich-text-types'
 
-const CardFeature = ({ heading, description, subheading, image, altText, alignment }) => {
+const CardFeature = ({ heading, description, subheading, image, altText, alignment, sectionId  }) => {
 
 	const options = {
 
@@ -14,7 +14,14 @@ const CardFeature = ({ heading, description, subheading, image, altText, alignme
 
 	return (
 
-		<section className="w-full px-8 max-w-screen-lg m-auto pb-24">
+		<section 
+			{
+				...{
+					className : 'w-full px-8 max-w-screen-lg m-auto pb-24',
+					id : sectionId
+				}
+			}
+		>
 			<div
 				{
 					...{

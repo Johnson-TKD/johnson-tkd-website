@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 
-const Advertisement = ({ title, description, link, image }) => {
+const Advertisement = ({ title, description, link, image, sectionId }) => {
 	
 	return (
 
@@ -12,7 +12,8 @@ const Advertisement = ({ title, description, link, image }) => {
 					className : 'w-full bg-no-repeat bg-cover bg-center relative ',
 					style : {
 						backgroundImage : 'url(' + image?.fields?.file?.url
-					}
+					},
+					id : sectionId
 				}
 			}
 		>

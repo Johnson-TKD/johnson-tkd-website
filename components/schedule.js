@@ -2,7 +2,7 @@
 
 import CardSchedule from "./card-schedule";
 
-const Schedule = ({ title, subheading, description, scheduleCards, backgroundColor }) => {
+const Schedule = ({ title, subheading, description, scheduleCards, backgroundColor, sectionId }) => {
 
 	return (
 
@@ -12,7 +12,8 @@ const Schedule = ({ title, subheading, description, scheduleCards, backgroundCol
 					className : 'mb-24',
 					style : {
 						backgroundColor
-					}
+					},
+					id : sectionId
 				}
 			}
 		>

@@ -73,14 +73,6 @@ const Header = ({ data }) => {
 					}
 					</ul>
 					<div className="col-span-6 lg:col-span-3 flex items-center justify-end gap-x-8">
-						{/* { data?.header?.items?.[ 0 ]?.fields?.address && 
-						<div className="hidden lg:flex items-center gap-x-2">
-							<Location className="w-10 h-10" />
-							<address className="not-italic font-montserrat font-normal w-60">
-								{ data?.header?.items?.[ 0 ]?.fields?.address }
-							</address>
-						</div>
-						} */}
 						<Link className="hidden lg:flex font-lora text-md border-2 rounded-full px-8 py-2 hover:bg-black hover:text-white transition-all duration-300" href='/'>
 							Start Today
 						</Link>
@@ -166,7 +158,8 @@ const Header = ({ data }) => {
 									{
 										...{
 											className : 'block text-black font-bold  text-lg hover:underline font-montserrat',
-											href : rest?.fields?.url
+											href : rest?.fields?.url,
+											onClick : actions.close
 										}
 									}
 									>

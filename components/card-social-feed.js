@@ -1,6 +1,6 @@
 "use client"
 
-const CardSocialFeed = ({ title, description, backgroundColor }) => {
+const CardSocialFeed = ({ title, description, backgroundColor, sectionId }) => {
 
 	return (
 
@@ -10,7 +10,8 @@ const CardSocialFeed = ({ title, description, backgroundColor }) => {
 					className : 'mb-24 ',
 					style : {
 						backgroundColor
-					}
+					},
+					id : sectionId
 				}
 			}
 		>
