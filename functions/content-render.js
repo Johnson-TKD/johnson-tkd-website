@@ -3,6 +3,7 @@ import CardCarousel from "@/components/card-carousel";
 import CardCenterFeature from "@/components/card-center-feature";
 import CardFeature from "@/components/card-feature";
 import CardSocialFeed from "@/components/card-social-feed";
+import Schedule from "@/components/schedule";
 import { createClient } from "contentful";
 
 export const contentRender = ( section, key ) => {
@@ -76,6 +77,22 @@ export const contentRender = ( section, key ) => {
 		return (
 
 			<CardSocialFeed 
+				{
+					...{
+						...section.fields
+					}
+				}
+			/>
+
+		)
+
+	}
+
+	if ( section?.sys?.contentType?.sys?.id === 'schedule') {
+
+		return (
+
+			<Schedule 
 				{
 					...{
 						...section.fields
