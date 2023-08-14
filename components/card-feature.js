@@ -12,7 +12,7 @@ const CardFeature = ({ heading, description, subheading, image, altText, alignme
         }
 
     };
-	// console.log( image?.fields?.file?.url.slice( 2 ) )
+
 	return (
 
 		<section 
