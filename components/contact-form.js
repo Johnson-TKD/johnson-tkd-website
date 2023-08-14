@@ -196,7 +196,7 @@ const ContactForm = ({ title, subheading, description, sectionId, backgroundColo
 						</p>
 						}
 					</div>
-					<button type="submit" className='ml-auto font-lora text-md border-2 rounded-full px-8 py-2 hover:bg-black hover:text-white transition-all duration-300'>Submit</button>
+					<button type="submit" className='w-full md:w-4/12 md:ml-auto font-lora text-md border-2 rounded-full px-8 py-2 hover:bg-black hover:text-white transition-all duration-300'>Submit</button>
 				</form>
 			</div>
 		</section>
