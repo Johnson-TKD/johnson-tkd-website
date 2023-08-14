@@ -32,7 +32,7 @@ const Schedule = ({ title, subheading, description, scheduleCards, backgroundCol
 						}
 					</div>
 					{ description &&
-					<p className="font-lora">
+					<p className="font-lora w-full lg:w-1/2">
 						{ description }
 					</p>
 					}

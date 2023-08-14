@@ -3,6 +3,7 @@ import CardCarousel from "@/components/card-carousel";
 import CardCenterFeature from "@/components/card-center-feature";
 import CardFeature from "@/components/card-feature";
 import CardSocialFeed from "@/components/card-social-feed";
+import ContactForm from "@/components/contact-form";
 import Schedule from "@/components/schedule";
 import { createClient } from "contentful";
 
@@ -93,6 +94,22 @@ export const contentRender = ( section, key ) => {
 		return (
 
 			<Schedule 
+				{
+					...{
+						...section.fields
+					}
+				}
+			/>
+
+		)
+
+	}
+
+	if ( section?.sys?.contentType?.sys?.id === 'contactForm') {
+
+		return (
+
+			<ContactForm 
 				{
 					...{
 						...section.fields
