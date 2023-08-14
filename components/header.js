@@ -42,13 +42,10 @@ const Header = ({ data }) => {
 					>
 						<Image 
 							src={ Logo.src }
-							width={85}
-							height={85}
+							width={ 85 }
+							height={ 85 }
 							alt=""
 						/>
-						<span className="w-full">
-						Johnson&apos;s&#013;<br/>Taekwon&#8209;do
-						</span>
 					</Link>
 					<ul className="col-span-6 relative text-md hidden lg:flex justify-center items-center">
 					{ data?.header?.items?.[ 0 ]?.fields?.navigationLinks?.length > 0 &&
@@ -73,7 +70,7 @@ const Header = ({ data }) => {
 					}
 					</ul>
 					<div className="col-span-6 lg:col-span-3 flex items-center justify-end gap-x-8">
-						<Link className="hidden lg:flex font-lora text-md border-2 rounded-full px-8 py-2 hover:bg-black hover:text-white transition-all duration-300" href='/'>
+						<Link className="hidden lg:flex font-lora text-md border-2 rounded-full px-8 py-2 hover:bg-black hover:text-white transition-all duration-300" href='#contact-us'>
 							Start Today
 						</Link>
 						<button

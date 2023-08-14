@@ -25,7 +25,7 @@ const CardSchedule = ({ day, schedules, className }) => {
 
 						return (
 
-							<div className="flex gap-x-4" key={ key }>
+							<div className="flex items-center gap-x-4" key={ key }>
 								<div 
 									{
 										...{

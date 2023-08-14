@@ -14,7 +14,7 @@ const CarouselSlide = ({ url, title, description, link }) => {
 				}
 			}
 		>
-			<div className="relative z-20 max-w-screen-2xl m-auto w-full h-full flex flex-col items-center justify-center text-white gap-y-4 px-8 text-center">
+			<div className="relative z-20 max-w-screen-lg m-auto w-full h-full flex flex-col items-center justify-center text-white gap-y-4 px-8 text-center">
 				{ title &&
 				<h2 className="font-montserrat text-4xl md:text-6xl font-bold whitespace-break-spaces">
 					{ title }
