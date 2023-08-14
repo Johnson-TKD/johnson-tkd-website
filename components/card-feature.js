@@ -1,6 +1,7 @@
 'use client'
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { BLOCKS } from '@contentful/rich-text-types'
+import Image from "next/image";
 
 const CardFeature = ({ heading, description, subheading, image, altText, alignment, sectionId  }) => {
 
@@ -11,7 +12,7 @@ const CardFeature = ({ heading, description, subheading, image, altText, alignme
         }
 
     };
-
+	// console.log( image?.fields?.file?.url.slice( 2 ) )
 	return (
 
 		<section 
@@ -52,10 +53,16 @@ const CardFeature = ({ heading, description, subheading, image, altText, alignme
 				</div>
 				{ image?.fields?.file?.url &&
 				<div className="w-full lg:w-4/12 rounded-xl border border-black">
-					<img 
-						src={ image?.fields?.file?.url } 
-						alt={ altText } 
-						className="min-h-[400px] w-full block object-cover object-center rounded-xl"
+					<Image 
+						{
+							...{
+								src : 'http://' + image?.fields?.file?.url.slice( 2 ),
+								width: 1200,
+								height: 1200,
+								alt : altText,
+								className : 'min-h-[400px] w-full block object-cover object-center rounded-xl'
+							}
+						}
 					/>
 				</div>
 				}

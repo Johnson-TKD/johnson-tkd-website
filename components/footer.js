@@ -1,5 +1,6 @@
 'use client'
 
+import Image from "next/image";
 import Link from "next/link";
 
 const Footer = ({ data }) => {
@@ -28,11 +29,13 @@ const Footer = ({ data }) => {
 											}
 										}
 									>
-										<img 
+										<Image 
 											{
 												...{
-													src : link?.fields?.iconImage?.fields?.file?.url,
+													src : 'http://' + link?.fields?.iconImage?.fields?.file?.url.slice( 2 ),
 													alt : '',
+													width : 48,
+													height: 48,
 													className : 'w-12 h-12'
 												}
 											}
