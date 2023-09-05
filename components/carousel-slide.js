@@ -21,7 +21,7 @@ const CarouselSlide = ({ url, title, description, link }) => {
 				</h2>
 				}
 				{ description &&
-				<p className="font-lora text-xl md:text-2xl">
+				<p className="font-lora text-md md:text-lg">
 					{ description }
 				</p>
 				}

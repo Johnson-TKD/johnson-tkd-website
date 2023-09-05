@@ -2,8 +2,18 @@
 
 import * as Yup from 'yup';
 import { useFormik } from 'formik';
+import axios from 'axios';
 
 const ContactForm = ({ title, subheading, description, sectionId, backgroundColor }) => {
+
+	const onSubmit = async ( values ) => {
+
+		const { data } = await axios.post(
+			'/api/contact',
+			values
+		);
+
+	}
 
 	const {
 		handleSubmit,
@@ -27,7 +37,17 @@ const ContactForm = ({ title, subheading, description, sectionId, backgroundColo
 			message : Yup.string().label( 'Message' ).nullable().required()
 		}),
 		onSubmit : ( values ) => {
-			console.log( values )
+
+			try {
+
+				onSubmit( values )
+
+			} catch ( error ) {
+
+				console.log( error )
+
+			}
+
 		}
 	});
 
