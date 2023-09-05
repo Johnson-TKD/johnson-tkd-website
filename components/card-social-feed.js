@@ -1,6 +1,17 @@
 "use client"
 
-const CardSocialFeed = ({ title, description, backgroundColor, sectionId }) => {
+import { useEffect, useState } from 'react';
+import { FacebookEmbed } from 'react-social-media-embed';
+
+const CardSocialFeed = ({ title, description, backgroundColor, sectionId, facebookPost }) => {
+
+	const [ isMounted, setIsMounted ] = useState( false );
+
+	useEffect( () => {
+
+		setIsMounted( true )
+
+	}, [])
 
 	return (
 
@@ -26,9 +37,14 @@ const CardSocialFeed = ({ title, description, backgroundColor, sectionId }) => {
 					{ description }
 				</p>
 				}
-				<iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fjohnsontkd%2F&tabs=timeline&width=1240px&height=500px&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false&appId" width="500" height="500" scrolling="no" frameBorder="0" allowFullScreen={ true } allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" data-adapt-container-width="true" className="w-[300px] sm:w-[500px]"/>				
-			</div>
-
+				{ isMounted && facebookPost &&
+					<div className="flex justify-center">
+						<FacebookEmbed
+						url={ facebookPost }
+						width={350} />
+					</div>
+				}
+				</div>	
 		</section>
 
 	);

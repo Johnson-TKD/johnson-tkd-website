@@ -13,9 +13,9 @@ export default async function Home() {
         <HtmlHead />
         <Header
             {
-            ...{
-                data
-            }
+                ...{
+                    data
+                }
             }
         />
         { data?.fields?.sections &&
