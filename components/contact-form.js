@@ -12,7 +12,7 @@ const ContactForm = ({ title, subheading, description, sectionId, backgroundColo
 			'/api/contact',
 			values
 		);
-
+			// console.log( values )
 	}
 
 	const {

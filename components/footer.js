@@ -48,7 +48,7 @@ const Footer = ({ data }) => {
 					</p>
 					}
 				</div>
-				<div className="w-full lg:w-1/2 flex flex-col lg:flex-row justify-between gap-y-8">
+				<div className="w-full lg:w-1/2 flex flex-col lg:flex-row justify-around gap-y-8">
 					<div>
 						<p className="text-lg underline mb-4">Navigation</p>
 						{ data?.footer?.items?.[ 0 ]?.fields?.navigationLinks.length > 0 &&

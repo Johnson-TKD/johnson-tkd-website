@@ -13,7 +13,7 @@ const HtmlHead = ({}) => {
             { process.env.NEXT_PUBLIC_GOOGLE_API_KEY &&
                 <script async src={ googleEndpoint }></script>
             }
-            <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v17.0" nonce="T8jF2iOs"></script>
+            <script async defer crossOrigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v17.0" nonce="T8jF2iOs"></script>
         </>
 
     );
