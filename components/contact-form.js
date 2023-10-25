@@ -3,8 +3,32 @@
 import * as Yup from 'yup';
 import { useFormik } from 'formik';
 import axios from 'axios';
+import emailjs from '@emailjs/browser';
+import { useRef } from 'react';
 
 const ContactForm = ({ title, subheading, description, sectionId, backgroundColor }) => {
+
+	const form = useRef();
+
+	const sendEmail = (e) => {
+		e.preventDefault();
+	
+		emailjs.sendForm(
+			process.env.NEXT_PUBLIC_EMAIL_SERVICE_ID, 
+			process.env.NEXT_PUBLIC_EMAIL_TEMPLATE_ID, 
+			form.current, 
+			process.env.NEXT_PUBLIC_EMAIL_API_KEY
+		)
+			.then(( result ) => {
+
+				console.log( result.text );
+
+			}, ( error ) => {
+
+				console.log( error.text );
+
+			});
+	  };
 
 	const onSubmit = async ( values ) => {
 
@@ -84,7 +108,15 @@ const ContactForm = ({ title, subheading, description, sectionId, backgroundColo
 					</p>
 					}
 				</div>
-				<form onSubmit={ handleSubmit } className="font-lora flex flex-wrap gap-4">
+				<form 
+					{
+						...{
+							onSubmit : sendEmail,
+							className : 'font-lora flex flex-wrap gap-4',
+							ref : form
+						}
+					}
+				>
 					<div className="w-full md:w-[calc(50%-8px)]">
 						<div className="flex flex-col">
 							<label htmlFor="name">Name*</label>
@@ -93,6 +125,7 @@ const ContactForm = ({ title, subheading, description, sectionId, backgroundColo
 									...{
 										type : 'text',
 										id : 'name',
+										name : 'name',
 										className : 'border py-1 px-2 mt-2',
 										value : values?.name,
 										onChange : event => {
@@ -113,12 +146,21 @@ const ContactForm = ({ title, subheading, description, sectionId, backgroundColo
 					</div>
 					<div className="w-full md:w-[calc(50%-8px)]">
 						<div className="flex flex-col">
-							<label htmlFor="email">Email Address*</label>
+							<label
+								{
+									...{
+										htmlFor : 'email'
+									}
+								}
+							>
+								Email Address*
+							</label>
 							<input
 								{
 									...{
 										type : 'email',
 										id : 'email',
+										name : 'email',
 										className : 'border py-1 px-2 mt-2',
 										value : values?.email,
 										onChange : event => {
@@ -145,6 +187,7 @@ const ContactForm = ({ title, subheading, description, sectionId, backgroundColo
 									...{
 										type : 'tel',
 										id : 'phone',
+										name : 'phone',
 										className : 'border py-1 px-2 mt-2',
 										value : values?.phone,
 										onChange : event => {
@@ -171,6 +214,7 @@ const ContactForm = ({ title, subheading, description, sectionId, backgroundColo
 									...{
 										type : 'text',
 										id : 'subject',
+										name : 'subject',
 										value : values?.subject,
 										className : 'border py-1 px-2 mt-2',
 										onChange : event => {
