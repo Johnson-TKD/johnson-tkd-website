@@ -44,6 +44,8 @@ export async function POST ( req, res ) {
 
 	}
 
-	return NextResponse.json({ message: 'success' });
+	console.log( name )
+	
+	return NextResponse.json({ message: 'success', data: res });
 	
 }
