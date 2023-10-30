@@ -4,21 +4,53 @@ import * as Yup from 'yup';
 import { useFormik } from 'formik';
 import axios from 'axios';
 import emailjs from '@emailjs/browser';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
+import { Check } from './svgs';
 
 const ContactForm = ({ 
 	title, 
 	subheading, 
 	description, 
 	sectionId, 
-	backgroundColor 
+	backgroundColor
 }) => {
+
+	const [ isSubmitted, setIsSubmitted ] = useState( false );
 
 	const form = useRef();
 
+	const {
+		setFieldValue,
+		setFieldError,
+		values,
+		errors,
+		validateForm,
+		resetForm,
+	} = useFormik({
+		initialValues : {
+			name : '',
+			email : '',
+			phone : '',
+			subject : '',
+			message : ''
+		},
+		validationSchema : Yup.object({
+			name : Yup.string().label( 'Name' ).nullable().required(),
+			email : Yup.string().email().label( 'Email' ).required(),
+			phone : Yup.string().label( 'Phone' ).nullable().required(),
+			subject : Yup.string().label( 'Subject' ).nullable().required(),
+			message : Yup.string().label( 'Message' ).nullable().required()
+		})
+
+	});
+
 	const sendEmail = (e) => {
 		e.preventDefault();
-	
+
+		validateForm( values );
+
+		if ( errors.length > 0 ) return;
+
 		emailjs.sendForm(
 			process.env.NEXT_PUBLIC_EMAIL_SERVICE_ID, 
 			process.env.NEXT_PUBLIC_EMAIL_TEMPLATE_ID, 
@@ -34,52 +66,12 @@ const ContactForm = ({
 				console.log( error.text );
 
 			});
-	  };
 
-	const onSubmit = async ( values ) => {
+		resetForm();
 
-		const { data } = await axios.post(
-			'/api/contact',
-			values
-		);
-			// console.log( values )
-	}
+		setIsSubmitted( true );
 
-	const {
-		handleSubmit,
-		setFieldValue,
-		setFieldError,
-		values,
-		errors
-	} = useFormik({
-		initialValues : {
-			name : '',
-			email : '',
-			phone : '',
-			subject : '',
-			message : ''
-		},
-		validationSchema : Yup.object({
-			name : Yup.string().label( 'Name' ).nullable().required(),
-			email : Yup.string().email().label( 'Email' ).required(),
-			phone : Yup.string().label( 'Phone' ).nullable().required(),
-			subject : Yup.string().label( 'Subject' ).nullable().required(),
-			message : Yup.string().label( 'Message' ).nullable().required()
-		}),
-		onSubmit : ( values ) => {
-
-			try {
-
-				onSubmit( values )
-
-			} catch ( error ) {
-
-				console.log( error )
-
-			}
-
-		}
-	});
+	};
 
 	return(
 
@@ -114,160 +106,190 @@ const ContactForm = ({
 					</p>
 					}
 				</div>
-				<form 
-					{
-						...{
-							onSubmit : sendEmail,
-							className : 'font-lora flex flex-wrap gap-4',
-							ref : form
-						}
-					}
-				>
-					<div className="w-full md:w-[calc(50%-8px)]">
-						<div className="flex flex-col">
-							<label htmlFor="name">Name*</label>
-							<input 
+				<div className="relative">
+					<div className="absolute flex flex-col items-center gap-y-4 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 font-montserrat text-2xl text-center">
+						<div
+							{
+								...{
+									className : 'bg-green rounded-full p-2'
+								}
+							}
+						>
+							<Check
 								{
 									...{
-										type : 'text',
-										id : 'name',
-										name : 'name',
-										className : 'border py-1 px-2 mt-2',
-										value : values?.name,
-										onChange : event => {
+										className : 'h-12 w-12'
+									}
+								}
+							/>
+						</div>
+						<p>
+							Your form has been successfully submitted.
+						</p>
+					</div>
+					<form 
+						{
+							...{
+								onSubmit : sendEmail,
+								className : 'font-lora flex flex-wrap gap-4 transition-all duration-300 ' + ( isSubmitted ? 'opacity-0 user-select-none' : '' ),
+								"aria-hidden" : isSubmitted,
+								ref : form
+							}
+						}
+					>
+						<div className="w-full md:w-[calc(50%-8px)]">
+							<div className="flex flex-col">
+								<label htmlFor="name">Name*</label>
+								<input 
+									{
+										...{
+											type : 'text',
+											id : 'name',
+											name : 'name',
+											className : 'border py-1 px-2 mt-2',
+											value : values?.name,
+											onChange : event => {
 
-											setFieldValue( 'name', event.target.value );
-											setFieldError( 'name', null );
-											
+												setFieldValue( 'name', event.target.value, false );
+												setFieldError( 'name', null );
+												
+											}
 										}
 									}
-								}
-							/>
+								/>
+							</div>
+							{ errors.name &&
+							<p className="mt-1 text-sm text-[red]">
+								{ errors?.name }
+							</p>
+							}
 						</div>
-						{ errors.name &&
-						<p className="mt-1 text-sm text-[red]">
-							{ errors?.name }
-						</p>
-						}
-					</div>
-					<div className="w-full md:w-[calc(50%-8px)]">
-						<div className="flex flex-col">
-							<label
-								{
-									...{
-										htmlFor : 'email'
-									}
-								}
-							>
-								Email Address*
-							</label>
-							<input
-								{
-									...{
-										type : 'email',
-										id : 'email',
-										name : 'email',
-										className : 'border py-1 px-2 mt-2',
-										value : values?.email,
-										onChange : event => {
-
-											setFieldValue( 'email', event.target.value );
-											setFieldError( 'email', null );
-											
+						<div className="w-full md:w-[calc(50%-8px)]">
+							<div className="flex flex-col">
+								<label
+									{
+										...{
+											htmlFor : 'email'
 										}
 									}
-								}
-							/>
-						</div>
-						{ errors.email &&
-						<p className="mt-1 text-sm text-[red]">
-							{ errors?.email }
-						</p>
-						}
-					</div>
-					<div className="w-full md:w-[calc(50%-8px)]">
-						<div className="flex flex-col">
-							<label htmlFor="phone">Phone*</label>
-							<input
-								{
-									...{
-										type : 'tel',
-										id : 'phone',
-										name : 'phone',
-										className : 'border py-1 px-2 mt-2',
-										value : values?.phone,
-										onChange : event => {
+								>
+									Email Address*
+								</label>
+								<input
+									{
+										...{
+											type : 'email',
+											id : 'email',
+											name : 'email',
+											className : 'border py-1 px-2 mt-2',
+											value : values?.email,
+											onChange : event => {
 
-											setFieldValue( 'phone', event.target.value );
-											setFieldError( 'phone', null );
-											
+												setFieldValue( 'email', event.target.value, false);
+												setFieldError( 'email', null );
+												
+											}
 										}
 									}
-								}
-							/>
+								/>
+							</div>
+							{ errors.email &&
+							<p className="mt-1 text-sm text-[red]">
+								{ errors?.email }
+							</p>
+							}
 						</div>
-						{ errors.phone &&
-						<p className="mt-1 text-sm text-[red]">
-							{ errors?.phone }
-						</p>
-						}
-					</div>
-					<div className="w-full md:w-[calc(50%-8px)]">
-						<div className="flex flex-col">
-							<label htmlFor="subject">Subject*</label>
-							<input 
-								{
-									...{
-										type : 'text',
-										id : 'subject',
-										name : 'subject',
-										value : values?.subject,
-										className : 'border py-1 px-2 mt-2',
-										onChange : event => {
+						<div className="w-full md:w-[calc(50%-8px)]">
+							<div className="flex flex-col">
+								<label htmlFor="phone">
+									Phone*
+								</label>
+								<input
+									{
+										...{
+											type : 'tel',
+											id : 'phone',
+											name : 'phone',
+											className : 'border py-1 px-2 mt-2',
+											value : values?.phone,
+											onChange : event => {
 
-											setFieldValue( 'subject', event.target.value );
-											setFieldError( 'subject', null );
-											
-										}									
+												setFieldValue( 'phone', event.target.value, false );
+												setFieldError( 'phone', null );
+												
+											}
+										}
 									}
-								}
-							/>
+								/>
+							</div>
+							{ errors.phone &&
+							<p className="mt-1 text-sm text-[red]">
+								{ errors?.phone }
+							</p>
+							}
 						</div>
-						{ errors.subject &&
-						<p className="mt-1 text-sm text-[red]">
-							{ errors?.subject }
-						</p>
-						}
-					</div>
-					<div className="w-full">
-						<div className="flex flex-col">
-							<label htmlFor="message">Message*</label>
-							<textarea
-								{
-									...{
-										id : 'message',
-										name : 'message',
-										type : 'text',
-										className : 'border h-32 px-2 mt-2',
-										value : values?.message,
-										onChange : event => {
+						<div className="w-full md:w-[calc(50%-8px)]">
+							<div className="flex flex-col">
+								<label htmlFor="subject">
+									Subject*
+								</label>
+								<input 
+									{
+										...{
+											type : 'text',
+											id : 'subject',
+											name : 'subject',
+											value : values?.subject,
+											className : 'border py-1 px-2 mt-2',
+											onChange : event => {
 
-											setFieldValue( 'message', event.target.value );
-											setFieldError( 'message', null );
-											
-										}									
+												setFieldValue( 'subject', event.target.value, false );
+												setFieldError( 'subject', null );
+												
+											}									
+										}
 									}
-								}
-							></textarea>
+								/>
+							</div>
+							{ errors.subject &&
+							<p className="mt-1 text-sm text-[red]">
+								{ errors?.subject }
+							</p>
+							}
 						</div>
-						{ errors.message &&
-						<p className="mt-1 text-sm text-[red]">
-							{ errors?.message }
-						</p>
-						}
-					</div>
-					<button type="submit" className='w-full md:w-4/12 md:ml-auto font-lora text-md border-2 rounded-full px-8 py-2 hover:bg-black hover:text-white transition-all duration-300'>Submit</button>
-				</form>
+						<div className="w-full">
+							<div className="flex flex-col">
+								<label htmlFor="message">
+									Message*
+								</label>
+								<textarea
+									{
+										...{
+											id : 'message',
+											name : 'message',
+											type : 'text',
+											className : 'border h-32 px-2 mt-2',
+											value : values?.message,
+											onChange : event => {
+
+												setFieldValue( 'message', event.target.value, false );
+												setFieldError( 'message', null );
+												
+											}									
+										}
+									}
+								></textarea>
+							</div>
+							{ errors.message &&
+							<p className="mt-1 text-sm text-[red]">
+								{ errors?.message }
+							</p>
+							}
+						</div>
+						<button type="submit" className='w-full md:w-4/12 md:ml-auto font-lora text-md border-2 rounded-full px-8 py-2 hover:bg-black hover:text-white transition-all duration-300'>Submit</button>
+					</form>
+				</div>
+
 			</div>
 		</section>
 	);

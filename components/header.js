@@ -47,7 +47,7 @@ const Header = ({ data }) => {
 					</Link>
 					<ul className="col-span-6 relative text-md hidden lg:flex justify-center items-center">
 					{ data?.header?.items?.[ 0 ]?.fields?.navigationLinks?.length > 0 &&
-						<div className="w-full flex justify-center items-center space-x-8 py-2 font-montserrat font-bold text-sm">
+						<div className="w-full flex justify-center items-center space-x-8 py-2 font-montserrat font-bold text-md">
 							{
 								data?.header?.items?.[ 0 ]?.fields?.navigationLinks?.map( ({ text, ...rest }, key ) => (
 									<li key={ key }>
@@ -134,7 +134,7 @@ const Header = ({ data }) => {
 							{
 								...{
 									href : '/',
-									className : 'col-span-6 lg:col-span-3 flex items-center gap-x-4 py-4 text-black font-montserrat font-bold text-black text-xl',
+									className : 'col-span-6 lg:col-span-3 flex items-center gap-x-4 pb-8 text-black font-montserrat font-bold text-black text-xl',
 									onClick : actions.close
 								}
 							}
@@ -150,22 +150,22 @@ const Header = ({ data }) => {
 						{
 							data?.header?.items?.[ 0 ]?.fields?.navigationLinks?.map( ({ text, ...rest }, key ) => (
 								<li key={ key }>
-									<Link
-									{
-										...{
-											className : 'block text-black font-bold  text-lg hover:underline font-montserrat',
-											href : rest?.fields?.url,
-											onClick : actions.close
+									<a
+										{
+											...{
+												className : 'block text-black font-bold text-xl text-center hover:underline font-montserrat',
+												href : rest?.fields?.url,
+												onClick : actions.close
+											}
 										}
-									}
 									>
 										{ rest?.fields?.cta }
-									</Link>
+									</a>
 								</li>
 							))
 						}
 							<li>
-								<Link className="flex font-lora text-md border-2 rounded-full px-8 py-2 hover:bg-black hover:text-white transition-all duration-300" href='/'>
+								<Link className="flex font-lora text-md border-2 rounded-full px-8 py-2 mt-4 hover:bg-black hover:text-white transition-all duration-300" href='/'>
 									Start Today
 								</Link>
 							</li>
