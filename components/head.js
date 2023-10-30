@@ -7,17 +7,17 @@ const HtmlHead = ({}) => {
     return (
 
         <>
-            <title>Johnson's Taekwondo</title>
+            <title>Johnson&apos;s Taekwondo</title>
             <meta property="og:type" content="website" />
-            <meta property="og:title" content="Johnson's Taekwondo" />
+            <meta property="og:title" content="Johnson&apos;s Taekwondo" />
             <meta property="og:description" content="Elevate your mind and body through the dynamic art of Taekwondo, where tradition meets modern training for all ages and skill levels."/>
             <meta property="og:url" content="http://johnsontkd.com/" />
             <meta property="og:image" content="http://images.ctfassets.net/2yiuw6y0qyel/1Dy3Mlyd0Fxut7sbMnMy0J/41e4e534a6fd38bdf0933873830930ad/social-card.jpg" />
             <meta property="og:image:url" content="http://images.ctfassets.net/2yiuw6y0qyel/1Dy3Mlyd0Fxut7sbMnMy0J/41e4e534a6fd38bdf0933873830930ad/social-card.jpg" />
-            <meta property="og:image:alt" content="Johnson's Taekwondo Icon" />
+            <meta property="og:image:alt" content="Johnson&apos;s Taekwondo Icon" />
             <meta name="twitter:card" content="summary_large_image" />
             <meta name="twitter:url" content="http://images.ctfassets.net/2yiuw6y0qyel/ArnWtpFpiWt66YVEMtGhP/5acd9cc573561a0bfbc5468f7209a931/favicon-310x310.png" />
-            <meta name="twitter:title" content="Johnson's Taekwondo" />
+            <meta name="twitter:title" content="Johnson&apos;s Taekwondo" />
             <meta name="twitter:description" content="Elevate your mind and body through the dynamic art of Taekwondo, where tradition meets modern training for all ages and skill levels." />
             <meta name="twitter:image" content="http://images.ctfassets.net/2yiuw6y0qyel/1Dy3Mlyd0Fxut7sbMnMy0J/41e4e534a6fd38bdf0933873830930ad/social-card.jpg" />
             <meta name="twitter:image:url" content="http://images.ctfassets.net/2yiuw6y0qyel/1Dy3Mlyd0Fxut7sbMnMy0J/41e4e534a6fd38bdf0933873830930ad/social-card.jpg" />
