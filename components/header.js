@@ -57,7 +57,8 @@ const Header = ({ data }) => {
 										{
 											...{
 												className : 'text-black hover:underline',
-												href : rest?.fields?.url
+												href : rest?.fields?.url,
+												target : '_self'
 											}
 										}
 										>
