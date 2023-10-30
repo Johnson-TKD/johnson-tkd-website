@@ -55,7 +55,7 @@ const Footer = ({ data }) => {
 						<ul className="flex flex-col gap-y-2">
 							{ data?.footer?.items?.[ 0 ]?.fields?.navigationLinks.map( ( link, key ) => (
 								<li key={ key }>
-									<Link
+									<a
 										{
 											...{
 												href : ( link?.fields?.url || '/' ),
@@ -64,7 +64,7 @@ const Footer = ({ data }) => {
 										}
 									>
 										{ link?.fields?.cta }
-									</Link>
+									</a>
 								</li>
 							))}
 						</ul>
@@ -76,7 +76,7 @@ const Footer = ({ data }) => {
 						<ul className="flex flex-col gap-y-2">
 							{ data?.footer?.items?.[ 0 ]?.fields?.socialLinks.map( ( link, key ) => (
 								<li key={ key }>
-									<Link
+									<a
 										{
 											...{
 												href : ( link?.fields?.url || '/' ),
@@ -85,7 +85,7 @@ const Footer = ({ data }) => {
 										}
 									>
 										{ link?.fields?.cta }
-									</Link>
+									</a>
 								</li>
 							))}
 						</ul>

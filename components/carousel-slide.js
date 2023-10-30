@@ -1,13 +1,18 @@
 import Link from "next/link";
 
-const CarouselSlide = ({ url, title, description, link }) => {
+const CarouselSlide = ({ 
+	url, 
+	title, 
+	description, 
+	link 
+}) => {
 
 	return ( 
 
 		<div
 			{
 				...{
-					className : 'relative h-[400px] md:h-[630px] bg-cover w-full',
+					className : 'relative h-[400px] md:h-[630px] bg-cover w-full bg-bottom',
 					style : {
 						backgroundImage : 'url(' + url + ')'
 					}

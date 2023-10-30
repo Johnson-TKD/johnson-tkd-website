@@ -1,9 +1,13 @@
-"use client"
-
 import { useEffect, useState } from 'react';
 import { FacebookEmbed } from 'react-social-media-embed';
 
-const CardSocialFeed = ({ title, description, backgroundColor, sectionId, facebookPost }) => {
+const CardSocialFeed = ({ 
+	title, 
+	description, 
+	backgroundColor, 
+	sectionId, 
+	facebookPost 
+}) => {
 
 	const [ isMounted, setIsMounted ] = useState( false );
 

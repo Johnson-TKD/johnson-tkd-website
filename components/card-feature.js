@@ -3,7 +3,15 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { BLOCKS } from '@contentful/rich-text-types'
 import Image from "next/image";
 
-const CardFeature = ({ heading, description, subheading, image, altText, alignment, sectionId  }) => {
+const CardFeature = ({ 
+	heading, 
+	description, 
+	subheading, 
+	image, 
+	altText, 
+	alignment, 
+	sectionId  
+}) => {
 
 	const options = {
 

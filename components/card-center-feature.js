@@ -3,7 +3,14 @@
 import { GoogleMap, Marker } from '@react-google-maps/api';
 
 
-const CardCenterFeature = ({ title, description, location, backgroundColor, color, sectionId }) => {
+const CardCenterFeature = ({ 
+	title, 
+	description, 
+	location, 
+	backgroundColor, 
+	color, 
+	sectionId 
+}) => {
 
 	return (
 

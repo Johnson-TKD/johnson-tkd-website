@@ -6,7 +6,13 @@ import axios from 'axios';
 import emailjs from '@emailjs/browser';
 import { useRef } from 'react';
 
-const ContactForm = ({ title, subheading, description, sectionId, backgroundColor }) => {
+const ContactForm = ({ 
+	title, 
+	subheading, 
+	description, 
+	sectionId, 
+	backgroundColor 
+}) => {
 
 	const form = useRef();
 

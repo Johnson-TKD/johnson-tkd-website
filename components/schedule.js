@@ -2,7 +2,14 @@
 
 import CardSchedule from "./card-schedule";
 
-const Schedule = ({ title, subheading, description, scheduleCards, backgroundColor, sectionId }) => {
+const Schedule = ({ 
+	title, 
+	subheading, 
+	description, 
+	scheduleCards, 
+	backgroundColor, 
+	sectionId 
+}) => {
 
 	return (
 

@@ -1,14 +1,18 @@
-const CardSchedule = ({ day, schedules, className }) => {
+const CardSchedule = ({ 
+	day, 
+	schedules, 
+	className 
+}) => {
 
 	return (
 
 		<div className="w-full lg:w-1/2">
 			<div
-			{
-				...{
-					className : 'flex flex-col justify-center bg-white p-8 rounded-xl border border-black shadow-lg ' + className
+				{
+					...{
+						className : 'flex flex-col justify-center bg-white p-8 rounded-xl border border-black shadow-lg ' + className
+					}
 				}
-			}
 			>
 				<div className="mb-4">
 					{ day &&

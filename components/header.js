@@ -1,10 +1,8 @@
-'use client'
-
 import { useAppContext } from "@/functions/hooks";
 import Image from "next/image";
 import Link from "next/link";
 import Logo from "public/logo.png";
-import { Location, Menu, Times } from "./svgs";
+import { Menu, Times } from "./svgs";
 
 const Header = ({ data }) => {
 

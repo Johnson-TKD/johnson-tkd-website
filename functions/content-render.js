@@ -29,7 +29,7 @@ export const contentRender = ( section, key ) => {
 
 		return (
 
-			<CardFeature 
+			<CardFeature key={ key }
 				{
 					...{
 						...section.fields,
@@ -45,7 +45,7 @@ export const contentRender = ( section, key ) => {
 
 		return (
 
-			<Advertisement 
+			<Advertisement key={ key }
 				{
 					...{
 						...section.fields,
@@ -61,7 +61,7 @@ export const contentRender = ( section, key ) => {
 
 		return (
 
-			<CardCenterFeature 
+			<CardCenterFeature key={ key }
 				{
 					...{
 						...section.fields
@@ -77,7 +77,7 @@ export const contentRender = ( section, key ) => {
 
 		return (
 
-			<CardSocialFeed 
+			<CardSocialFeed key={ key }
 				{
 					...{
 						...section.fields
@@ -93,7 +93,7 @@ export const contentRender = ( section, key ) => {
 
 		return (
 
-			<Schedule 
+			<Schedule key={ key }
 				{
 					...{
 						...section.fields
@@ -109,7 +109,7 @@ export const contentRender = ( section, key ) => {
 
 		return (
 
-			<ContactForm 
+			<ContactForm key={ key }
 				{
 					...{
 						...section.fields

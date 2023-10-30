@@ -1,8 +1,14 @@
-"use client"
+'use client'
 
 import Link from "next/link";
 
-const Advertisement = ({ title, description, link, image, sectionId }) => {
+const Advertisement = ({ 
+	title, 
+	description, 
+	link, 
+	image, 
+	sectionId 
+}) => {
 	
 	return (
 
