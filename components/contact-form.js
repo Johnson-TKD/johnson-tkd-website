@@ -107,7 +107,14 @@ const ContactForm = ({
 					}
 				</div>
 				<div className="relative">
-					<div className="absolute flex flex-col items-center gap-y-4 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 font-montserrat text-2xl text-center">
+					<div 
+						{
+							...{
+								className : 'absolute flex flex-col items-center gap-y-4 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 font-montserrat text-2xl text-center ' + ( isSubmitted ? 'opacity-1' : ' opacity-0 select-none pointer-events-none' ),
+								"aria-hidden" : ! isSubmitted,
+							}
+						}
+					>
 						<div
 							{
 								...{
@@ -131,7 +138,7 @@ const ContactForm = ({
 						{
 							...{
 								onSubmit : sendEmail,
-								className : 'font-lora flex flex-wrap gap-4 transition-all duration-300 ' + ( isSubmitted ? 'opacity-0 user-select-none' : '' ),
+								className : 'font-lora flex flex-wrap gap-4 transition-all duration-300 ' + ( isSubmitted ? 'opacity-0 select-none pointer-events-none	' : '' ),
 								"aria-hidden" : isSubmitted,
 								ref : form
 							}

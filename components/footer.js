@@ -17,7 +17,7 @@ const Footer = ({ data }) => {
 				}
 			}
 		>
-			<div className="flex-col lg:flex-row flex max-w-screen-lg m-auto w-full h-full">
+			<div className="flex-col max-w-screen-lg px-8 lg:flex-row flex max-w-screen-lg m-auto w-full h-full">
 				<div className="w-full lg:w-1/2 flex flex-col pb-4 lg:pb-0">
 					<Link
 						{
