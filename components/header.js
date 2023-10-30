@@ -53,17 +53,17 @@ const Header = ({ data }) => {
 							{
 								data?.header?.items?.[ 0 ]?.fields?.navigationLinks?.map( ({ text, ...rest }, key ) => (
 									<li key={ key }>
-										<Link 
-										{
-											...{
-												className : 'text-black hover:underline',
-												href : rest?.fields?.url,
-												target : '_self'
+										<a 
+											{
+												...{
+													className : 'text-black hover:underline',
+													href : rest?.fields?.url,
+													target : '_self'
+												}
 											}
-										}
 										>
 											{ rest?.fields?.cta }
-										</Link>
+										</a>
 									</li>
 								))
 							}
