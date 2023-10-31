@@ -5,44 +5,62 @@ import HtmlHead from '@/components/head';
 import { getData, contentRender } from '@/functions/content-render';
 import Footer from '@/components/footer';
 import { ContextProvider } from '@/components/context-provider'
+import { useEffect, useState } from 'react';
 
-export default async function Home() {
+export default function Home() {
 
-    const data = await getData();
+    const [ data, setData ] = useState( null );
+
+    const fetchData = async () => {
+
+        setData( await getData() );
+
+    }
+
+    useEffect( () => {
+
+        fetchData();
+
+    }, [])
 
     return (
         
         <ContextProvider>
             <main>
                 <HtmlHead />
-                <Header
-                    {
-                        ...{
-                            data
+                { data &&
+                <>
+                    <Header
+                        {
+                            ...{
+                                data
+                            }
                         }
+                    />
+                    { data?.fields?.sections &&
+
+                        data?.fields?.sections.map( ( section, key ) => {
+
+                            return ( 
+
+                                contentRender( section, key )
+
+                            )
+
+                        })
+
                     }
-                />
-                { data?.fields?.sections &&
-
-                    data?.fields?.sections.map( ( section, key ) => {
-
-                        return ( 
-
-                            contentRender( section, key )
-
-                        )
-
-                    })
-
+                    <Footer
+                        {
+                            ...{
+                                data
+                            }
+                        }
+                    />
+                </>
                 }
-                <Footer
-                    {
-                        ...{
-                            data
-                        }
-                    }
-                />
             </main>
         </ContextProvider>
+
     )
 }
