@@ -13,7 +13,7 @@ const Footer = ({ data }) => {
 		<footer
 			{
 				...{
-					className : 'w-full p-8 space-y-6 w-full bg-black py-24 px-8 font-montserrat text-white'
+					className : 'w-full space-y-6 w-full bg-black py-24 font-montserrat text-white'
 				}
 			}
 		>

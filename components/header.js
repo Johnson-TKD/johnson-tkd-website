@@ -6,12 +6,15 @@ import Link from "next/link";
 import Logo from "public/logo.png";
 import { Menu, Times } from "./svgs";
 import { useEffect, useRef } from "react";
+import Headroom from 'headroom.js'
 
 const Header = ({ data }) => {
 
 	const { state : { menu }, dispatch } = useAppContext();
 
 	const modal = useRef( null );
+
+	const header = useRef( null );
 
 	const actions = {
 		open : () => dispatch({
@@ -25,6 +28,14 @@ const Header = ({ data }) => {
 	};
 
 	useEffect( () => {
+
+		const headroom = new Headroom( header?.current, {
+			offset : {
+				down: 100
+			}
+		});
+
+		headroom.init();
 
 		if ( ! menu?.active ) return;
 
@@ -102,11 +113,12 @@ const Header = ({ data }) => {
 
     return (
 
-		<header>
+		<header className="pt-[100px] md:pt-[120px]">
 			<nav
 				{
 					...{
-						className : 'z-10 top-0 left-0 w-full flex flex-col items-center justify-between shadow bg-white font-montserrat'
+						className : 'h-[100px] md:h-[120px] fixed z-30 top-0 left-0 w-full flex flex-col items-center justify-between shadow bg-white font-montserrat transition-all duration-300',
+						ref : header
 					}
 				}
 			>
@@ -126,7 +138,8 @@ const Header = ({ data }) => {
 										src : Logo.src,
 										width : 85,
 										height : 85,
-										alt : ''
+										alt : '',
+										className : 'w-[65px] md:w-[85px] h-[65px] md:h-[85px]'
 									}
 								}
 							/>
@@ -195,7 +208,7 @@ const Header = ({ data }) => {
 				<div
 					{
 						...{
-							className : 'z-20 fixed top-0 w-full h-screen bg-white shadow transform duration-300 md:w-5/12 ' + ( menu?.active ? 'right-0' : '-right-full' ),
+							className : 'z-40 fixed top-0 w-full h-screen bg-white shadow transform duration-300 md:w-5/12 ' + ( menu?.active ? 'right-0' : '-right-full' ),
 							ref : modal
 						}
 					}

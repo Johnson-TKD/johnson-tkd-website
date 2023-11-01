@@ -2,10 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Overall */
+
 html,
 body {
 	overflow-x: hidden;
 }
+
+/* Carousel styling */
 
 .react-multi-carousel-track {
 	margin: 0;
@@ -41,6 +45,8 @@ body {
 	margin-right: 0 !important;
 }
 
+/* Loader */
+
 .lds-dual-ring {
 	display: inline-block;
 	width: 80px;
@@ -56,4 +62,14 @@ body {
 	border: 6px solid #fff;
 	border-color: black transparent black transparent;
 	animation: lds-dual-ring 1.2s linear infinite;
+}
+
+/* Headroom */
+
+.headroom--pinned {
+	top: 0px;
+}
+
+.headroom--unpinned {
+	top: -120px;
 }
