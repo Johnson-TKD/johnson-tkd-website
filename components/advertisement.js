@@ -39,7 +39,7 @@ const Advertisement = ({
 						{
 							...{
 								href : ( link?.fields?.url ? link?.fields?.url : '/' ),
-								className : 'inline-block font-lora text-md border-2 rounded-full px-8 py-2 hover:bg-white hover:text-black transition-all duration-300',
+								className : 'inline-block font-montserrat font-medium text-md border-2 rounded-full px-8 py-2 hover:bg-white hover:text-black transition-all duration-300',
 								target : ( link?.fields?.linkTarget ? '_blank' : '_parent' )
 							}
 						}

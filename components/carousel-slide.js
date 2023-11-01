@@ -36,7 +36,7 @@ const CarouselSlide = ({
 						...{
 							href : ( link?.url || '/' ),
 							target : ( link?.linkTarget ? '_blank' : '_parent' ),
-							className : 'font-lora text-md border-2 rounded-full px-8 py-2 hover:bg-white hover:text-black transition-all duration-300'
+							className : 'font-montserrat font-medium text-md border-2 rounded-full px-8 py-2 hover:bg-white hover:text-black transition-all duration-300'
 						}
 					}
 				>

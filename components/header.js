@@ -111,29 +111,30 @@ const Header = ({ data }) => {
 				}
 			>
 				<div className="w-full px-8 max-w-screen-lg m-auto grid grid-cols-12">
-					<a
-						{
-							...{
-								href : '/',
-								className : 'col-span-6 lg:col-span-3 flex items-center gap-x-4 py-4 text-black font-montserrat font-bold text-black text-xl',
-								tabIndex : ( menu?.active ? 0 : -1 )
-							}
-						}
-					>
-						<Image 
+					<div className="col-span-6 lg:col-span-3 flex items-center gap-x-4 py-4 text-black font-montserrat font-bold text-black text-xl">
+						<a
 							{
 								...{
-									src : Logo.src,
-									width : 85,
-									height : 85,
-									alt : ''
+									href : '/',
+									tabIndex : ( menu?.active ? 0 : -1 )
 								}
 							}
-						/>
-					</a>
+						>
+							<Image 
+								{
+									...{
+										src : Logo.src,
+										width : 85,
+										height : 85,
+										alt : ''
+									}
+								}
+							/>
+						</a>
+					</div>
 					<ul className="col-span-6 relative text-md hidden lg:flex justify-center items-center">
 					{ data?.header?.items?.[ 0 ]?.fields?.navigationLinks?.length > 0 &&
-						<div className="w-full flex justify-center items-center space-x-8 py-2 font-montserrat font-bold text-md">
+						<div className="w-full flex justify-center items-center space-x-8 py-2 font-montserrat font-medium text-md">
 							{
 								data?.header?.items?.[ 0 ]?.fields?.navigationLinks?.map( ({ text, ...rest }, key ) => (
 									<li key={ key }>
@@ -156,7 +157,7 @@ const Header = ({ data }) => {
 					}
 					</ul>
 					<div className="col-span-6 lg:col-span-3 flex items-center justify-end gap-x-8">
-						<Link className="hidden lg:flex font-lora text-md border-2 rounded-full px-8 py-2 hover:bg-black hover:text-white transition-all duration-300" href='#contact-us'>
+						<Link className="hidden lg:flex font-montserrat font-medium text-md border-2 rounded-full px-8 py-2 hover:bg-black hover:text-white transition-all duration-300" href='#contact-us'>
 							Start Today
 						</Link>
 						<button
