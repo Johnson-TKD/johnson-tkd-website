@@ -1,3 +1,5 @@
+'use client'
+
 import { useAppContext } from "@/functions/hooks";
 import Image from "next/image";
 import Link from "next/link";

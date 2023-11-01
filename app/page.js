@@ -1,66 +1,45 @@
-'use client'
-
 import Header from '../components/header';
 import HtmlHead from '@/components/head';
-import { getData, contentRender } from '@/functions/content-render';
+import { contentRender } from '@/functions/content-render';
 import Footer from '@/components/footer';
-import { ContextProvider } from '@/components/context-provider'
-import { useEffect, useState } from 'react';
+import { getData } from '@/functions/helper';
 
-export default function Home() {
+export default async function Home() {
 
-    const [ data, setData ] = useState( null );
-
-    const fetchData = async () => {
-
-        setData( await getData() );
-
-    }
-
-    useEffect( () => {
-
-        fetchData();
-
-    }, [])
+    let data = await getData();
 
     return (
         
-        <ContextProvider>
             <main>
                 <HtmlHead />
-                { data &&
-                <>
-                    <Header
-                        {
-                            ...{
-                                data
-                            }
+                <Header
+                    {
+                        ...{
+                            data
                         }
-                    />
-                    { data?.fields?.sections &&
-
-                        data?.fields?.sections.map( ( section, key ) => {
-
-                            return ( 
-
-                                contentRender( section, key )
-
-                            )
-
-                        })
-
                     }
-                    <Footer
-                        {
-                            ...{
-                                data
-                            }
-                        }
-                    />
-                </>
+                />
+                { data?.fields?.sections &&
+
+                    data?.fields?.sections.map( ( section, key ) => {
+
+                        return ( 
+
+                            contentRender( section, key )
+
+                        )
+
+                    })
+
                 }
+                <Footer
+                    {
+                        ...{
+                            data
+                        }
+                    }
+                />
             </main>
-        </ContextProvider>
 
     )
 }
