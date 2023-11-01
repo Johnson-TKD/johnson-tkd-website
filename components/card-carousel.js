@@ -20,6 +20,7 @@ const CardCarousel = ({
 						autoPlaySpeed : 3000,
 						centerMode : false,
 						infinite : true,
+						ssr : true,
 						draggable : true,
 						focusOnSelect : false,
 						keyBoardControl : true,
