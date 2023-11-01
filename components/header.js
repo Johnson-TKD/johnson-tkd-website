@@ -116,7 +116,7 @@ const Header = ({ data }) => {
 			<nav
 				{
 					...{
-						className : 'h-[100px] md:h-[120px] fixed z-30 top-0 left-0 w-full flex flex-col items-center justify-between shadow bg-white font-montserrat transition-all duration-300',
+						className : 'h-[100px] md:h-[120px] fixed z-30 top-0 left-0 w-full flex flex-col items-center justify-between shadow bg-white font-montserrat transition-all duration-500 ease-in-out',
 						ref : header
 					}
 				}
