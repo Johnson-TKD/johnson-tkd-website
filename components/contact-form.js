@@ -78,7 +78,7 @@ const ContactForm = ({
 		<section
 			{
 				...{
-					className : 'mb-24 py-24',
+					className : 'py-24',
 					style : {
 						backgroundColor
 					},

@@ -10,7 +10,7 @@ const CardCarousel = ({
 
         <div className="pb-24">
 			{ items &&
-            <Carousel 
+            <Carousel
 				{
 					...{
 						additionalTransfrom : 0,
@@ -22,7 +22,7 @@ const CardCarousel = ({
 						infinite : true,
 						ssr : true,
 						draggable : true,
-						focusOnSelect : false,
+						focusOnSelect : true,
 						keyBoardControl : true,
 						minimumTouchDrag : 80,
 						pauseOnHover : true,

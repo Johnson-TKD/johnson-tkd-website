@@ -30,9 +30,8 @@ const Header = ({ data }) => {
 	useEffect( () => {
 
 		const headroom = new Headroom( header?.current, {
-			offset : {
-				down: 100
-			}
+			offset : 100,
+			tolerance : 5
 		});
 
 		headroom.init();
