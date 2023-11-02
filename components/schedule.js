@@ -1,6 +1,6 @@
-"use client"
+'use client'
 
-import CardSchedule from "./card-schedule";
+import CardSchedule from './card-schedule';
 
 const Schedule = ({ 
 	title, 

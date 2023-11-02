@@ -1,4 +1,5 @@
-"use client"
+'use client'
+
 import Carousel from 'react-multi-carousel';
 import CarouselSlide from './carousel-slide';
 

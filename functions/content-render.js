@@ -1,11 +1,10 @@
-import Advertisement from "@/components/advertisement";
-import CardCarousel from "@/components/card-carousel";
-import CardCenterFeature from "@/components/card-center-feature";
-import CardFeature from "@/components/card-feature";
-import CardSocialFeed from "@/components/card-social-feed";
-import ContactForm from "@/components/contact-form";
-import Schedule from "@/components/schedule";
-import { createClient } from "contentful";
+import Advertisement from '@/components/advertisement';
+import CardCarousel from '@/components/card-carousel';
+import CardCenterFeature from '@/components/card-center-feature';
+import CardFeature from '@/components/card-feature';
+import CardSocialFeed from '@/components/card-social-feed';
+import ContactForm from '@/components/contact-form';
+import Schedule from '@/components/schedule';
 
 export const contentRender = ( section, key ) => {
 

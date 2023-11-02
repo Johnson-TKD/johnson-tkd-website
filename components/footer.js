@@ -1,8 +1,8 @@
 'use client'
 
-import Image from "next/image";
-import Link from "next/link";
-import Logo from "public/logo.png";
+import Image from 'next/image';
+import Link from 'next/link';
+import Logo from 'public/logo.png';
 
 const Footer = ({ data }) => {
 

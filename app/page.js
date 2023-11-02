@@ -6,7 +6,9 @@ import { getData } from '@/functions/helper';
 
 export default async function Home() {
 
-    let data = await getData();
+    const data = JSON.stringify( await getData() );
+
+    const parsedData = JSON.parse( data )
 
     return (
         
@@ -15,13 +17,13 @@ export default async function Home() {
                 <Header
                     {
                         ...{
-                            data
+                            data : parsedData
                         }
                     }
                 />
-                { data?.fields?.sections &&
+                { parsedData?.fields?.sections &&
 
-                    data?.fields?.sections.map( ( section, key ) => {
+                    parsedData?.fields?.sections.map( ( section, key ) => {
 
                         return ( 
 
@@ -35,7 +37,7 @@ export default async function Home() {
                 <Footer
                     {
                         ...{
-                            data
+                            data : parsedData
                         }
                     }
                 />

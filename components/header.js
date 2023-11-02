@@ -1,11 +1,11 @@
 'use client'
 
-import { useAppContext } from "@/functions/hooks";
-import Image from "next/image";
-import Link from "next/link";
-import Logo from "public/logo.png";
-import { Menu, Times } from "./svgs";
-import { useEffect, useRef } from "react";
+import { useAppContext } from '@/functions/hooks';
+import Image from 'next/image';
+import Link from 'next/link';
+import Logo from 'public/logo.png';
+import { Menu, Times } from './svgs';
+import { useEffect, useRef } from 'react';
 import Headroom from 'headroom.js'
 
 const Header = ({ data }) => {
