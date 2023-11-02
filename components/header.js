@@ -169,9 +169,9 @@ const Header = ({ data }) => {
 					}
 					</ul>
 					<div className="col-span-6 lg:col-span-3 flex items-center justify-end gap-x-8">
-						<Link className="hidden lg:flex font-montserrat font-medium text-md border-2 rounded-full px-8 py-2 hover:bg-black hover:text-white transition-all duration-300" href='#contact-us'>
+						<a className="hidden lg:flex font-montserrat font-medium text-md border-2 rounded-full px-8 py-2 hover:bg-black hover:text-white transition-all duration-300" href='#contact-us'>
 							Start Today
-						</Link>
+						</a>
 						<button
 							{
 								...{
@@ -270,7 +270,7 @@ const Header = ({ data }) => {
 								</li>
 							))}
 								<li>
-									<Link 
+									<a 
 										{
 											...{
 												className : 'flex font-lora text-md border-2 rounded-full px-8 py-2 mt-4 hover:bg-black hover:text-white transition-all duration-300',
@@ -280,7 +280,7 @@ const Header = ({ data }) => {
 										}
 									>
 										Start Today
-									</Link>
+									</a>
 								</li>
 							</ul>
 						</div>
