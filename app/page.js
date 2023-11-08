@@ -4,12 +4,6 @@ import { contentRender } from '@/functions/content-render';
 import Footer from '@/components/footer';
 import { getData } from '@/functions/helper';
 
-export const fetchCache = 'force-no-store';
-
-export const revalidate = 0;
-
-export const dynamic = 'force-dynamic';
-
 export default async function Home() {
 
     const data = JSON.stringify( await getData() );
