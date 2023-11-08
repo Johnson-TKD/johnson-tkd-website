@@ -10,7 +10,7 @@ const CardSchedule = ({
 			<div
 				{
 					...{
-						className : 'flex flex-col justify-center bg-white p-8 rounded-xl border border-black shadow-lg ' + className
+						className : 'h-full flex flex-col justify-start bg-white p-8 rounded-xl border border-black shadow-lg ' + className
 					}
 				}
 			>
