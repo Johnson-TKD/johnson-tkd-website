@@ -82,6 +82,7 @@ const Footer = ({ data }) => {
 										{
 											...{
 												href : ( link?.fields?.url || '/' ),
+												target : '_blank',
 												className : 'font-medium hover:underline'
 											}
 										}

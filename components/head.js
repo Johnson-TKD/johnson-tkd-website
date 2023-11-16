@@ -2,7 +2,7 @@ const { default: Head } = require("next/head");
 
 const HtmlHead = ({}) => {
 
-    const googleEndpoint = `https://maps.googleapis.com/maps/api/js?key=${ process.env.NEXT_PUBLIC_GOOGLE_API_KEY }`
+    const googleEndpoint = `https://maps.googleapis.com/maps/api/js?key=${ process.env.NEXT_PUBLIC_GOOGLE_API_KEY }&callback=Function.prototype`
 
     return (
 
