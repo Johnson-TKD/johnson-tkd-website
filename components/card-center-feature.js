@@ -1,6 +1,6 @@
 'use client'
 
-import { GoogleMap, Marker } from '@react-google-maps/api';
+import { GoogleMap, Marker, useJsApiLoader } from '@react-google-maps/api';
 
 
 const CardCenterFeature = ({ 
@@ -11,6 +11,10 @@ const CardCenterFeature = ({
 	color, 
 	sectionId 
 }) => {
+	
+	const { isLoaded } = useJsApiLoader({
+		googleMapsApiKey : process.env.NEXT_PUBLIC_GOOGLE_API_KEY
+	});
 
 	return (
 
@@ -37,7 +41,7 @@ const CardCenterFeature = ({
 						{ description }
 					</p>
 				}
-				{ location &&
+				{ location && isLoaded &&
 					<GoogleMap
 						center={{
 							lat : location?.lat,
