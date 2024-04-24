@@ -27,11 +27,11 @@ const Footer = ({ data }) => {
 							}
 						}
 					>
-						<Image 
-							src={ Logo.src }
-							width={85}
-							height={85}
-							alt=""
+						<img 
+							src = '/favicon-310x310.png'
+							width = {85}
+							height = {85}
+							alt = ""
 						/>
 						<span className="w-full text-white">
 						Johnson&apos;s&#013;<br/>Taekwon&#8209;do
