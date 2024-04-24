@@ -134,7 +134,7 @@ const Header = ({ data }) => {
 							<Image 
 								{
 									...{
-										src : '/favicon-310x310.png',
+										src : 'https://johnsontkd.com/favicon-310x310.png',
 										width : 85,
 										height : 85,
 										alt : '',
