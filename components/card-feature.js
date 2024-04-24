@@ -61,7 +61,7 @@ const CardFeature = ({
 				</div>
 				{ image?.fields?.file?.url &&
 				<div className="w-full lg:w-4/12 rounded-xl border border-black">
-					<Image 
+					<img 
 						{
 							...{
 								src : 'http://' + image?.fields?.file?.url.slice( 2 ),
